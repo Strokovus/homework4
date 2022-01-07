@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+const baseURL = window.location.protocol + "//" + window.location.host
+
 export class Getform extends Component {
   constructor(props) {
       super(props)
@@ -14,7 +16,7 @@ export class Getform extends Component {
   }
 
   retrievalHandler = e => {
-      axios.get("http://localhost:8082/posts/", {
+      axios.get(`${baseURL}/posts/`, {
       })
           .then(response => {
               console.log(response)

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+const baseURL = window.location.protocol + "//" + window.location.host
+
 export class Postform extends Component {
     constructor(props) {
         super(props)
@@ -26,7 +28,7 @@ export class Postform extends Component {
         console.log(this.state.value)
         this.setState({ value: !this.state.value });
         console.log(this.state)
-        axios.post("http://localhost:8082/posts", this.state)
+        axios.post(`${baseURL}/posts`, this.state)
             .then(
                 this.setState({ Title: '' }),
                 this.setState({ Content: '' }),
